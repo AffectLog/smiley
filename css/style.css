@@ -3,13 +3,13 @@ img {
 }
 
 .icon{
-    padding: 30px 0 30px 7px;
+    margin: 30px 0 30px 7px;
 }
 
 #toggle {
     width: 100px;
     height: 100%;
-    background: #ccc;
+    background: #fff;
 }
 
 .desaturate{
