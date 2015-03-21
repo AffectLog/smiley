@@ -2,45 +2,21 @@
     <head>
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-        <script>
-            $( "#icon" ).click(function() {
-                $( "#emotion").val();
-            });
-            $( document ).click(function() {
-                $( "#toggle" ).toggle( "slide" );
-            });
-            $("#feedback").submit(function(){
-                $.ajax({
-                    url: "https://api.mongolab.com/api/1/databases/smileydb/collections/feedback?apiKey=7HhN3sa1zLtTRKzYf34cicNQTfGWYEPd ",
-                    type: "POST",
-                    crossDomain: true,
-                    success: function(data) {
-                        console.log(data);
-                    },
-                    error: function(XMLHttpRequest, textStatus, errorThrown) {
-                        console.log(errorThrown);
-                    }
-                }).done(function() {
-                    $( this ).addClass( "done" );
-                });
-            });
-        </script>
 
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <link rel="stylesheet" href="css/style.css" type="text/css">
     </head>
     <body>
+        <form id="feedbackform">
+            <input id="emotion" type="hidden">
+            <input id="intensity" type="hidden">
+        </form>
         <div id="toggle">
-            <form id="feedbackform">
-                <input id="emotion" type="hidden">
-                <input id="intensity" type="hidden">
-            </form>
             <img id="green-icon" class="icon green" src="img/happy.png">
             <img id="yellow-icon" class="icon yellow" src="img/okay.png">
             <img id="orange-icon" class="icon orange" src="img/notokay.png">
             <img id="red-icon" class="icon red" src="img/unhappy.png">
-            <script src="js/smiley.js">
-            </script>
+            <script src="js/smiley.js"></script>
         </div>
     </body>
 </html>

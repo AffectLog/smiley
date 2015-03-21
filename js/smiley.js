@@ -1,3 +1,22 @@
+$( document ).click(function() {
+    $( "#toggle" ).toggle( "slide" );
+});
+$("#feedback").submit(function(){
+    $.ajax({
+        url: "https://api.mongolab.com/api/1/databases/smileydb/collections/feedback?apiKey=7HhN3sa1zLtTRKzYf34cicNQTfGWYEPd ",
+        type: "POST",
+        crossDomain: true,
+        success: function(data) {
+            console.log(data);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log(errorThrown);
+        }
+    }).done(function() {
+        $( this ).addClass( "done" );
+    });
+});
+
 $( ".icon" ).on( "mouseover", function() {
     if ( $( this ).hasClass( "green" ) )
         $( this ).css( "background-color", "lightgreen" );
