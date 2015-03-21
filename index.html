@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script>
+            $( "#icon" ).click(function() {
+                $( "#emotion").val();
+            });
+            $( document ).click(function() {
+                $( "#toggle" ).toggle( "slide" );
+            });
+            $("#feedback").submit(function(){
+                $.ajax({
+                    url: ("#feedbackform").attr("action"),
+                    type: "POST",
+                    crossDomain: true,
+                    success: function(data) {
+                        console.log(data);
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        console.log(errorThrown);
+                    }
+                }).done(function() {
+                    $( this ).addClass( "done" );
+                });
+            });
+        </script>
+
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+    </head>
+    <body>
+        <div id="toggle">
+            <form id="feedbackform" action="feedback.html">
+                <input id="emotion" type="hidden">
+                <div class="icon">
+                    <a href=""><img src="img/howRUgreen200-desaturated.png" onmouseover="this.src='img/howRUgreen200.png'"  onmouseout="this.src='img/howRUgreen200-desaturated.png'"></a>
+                </div>
+                <div class="icon">
+                    <a href=""><img src="img/howRUyellow200-desaturated.png" onmouseover="this.src='img/howRUyellow200.png'"  onmouseout="this.src='img/howRUyellow200-desaturated.png'"></a>
+                </div>
+                <div class="icon">
+                    <a href=""><img src="img/howRUorange200-desaturated.png" onmouseover="this.src='img/howRUorange200.png'"  onmouseout="this.src='img/howRUorange200-desaturated.png'"></a>
+                </div>
+                <div class="icon">
+                    <a href=""><img src="img/howRUred200-desaturated.png" onmouseover="this.src='img/howRUred200.png'"  onmouseout="this.src='img/howRUred200-desaturated.png'"></a>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
