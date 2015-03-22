@@ -18,7 +18,7 @@ $( document ).ready(function() {
 
     SetRatingStar();
 });
-$( document ).click(function() {
+$("#toggle-feedback").click(function() {
     $( "#toggle" ).toggle( "slide" );
 });
 $("#feedback").submit(function(){
