@@ -11,7 +11,8 @@
 
         <button id="toggle-feedback">Toggle feedback</button>
         <form id="feedbackform">
-            <input id="emotion" type="hidden">
+            <input id="emotion" name="emotion" type="hidden">
+            <input id="intensity" name="intensity" type="hidden">
             <div id="toggle">
                 <img id="green-icon" class="icon green" src="img/happy.png">
                 <div class="star-rating happy">
@@ -20,7 +21,7 @@
                     <span class="fa fa-square-o" data-rating="3"></span>
                     <span class="fa fa-square-o" data-rating="4"></span>
                     <span class="fa fa-square-o" data-rating="5"></span>
-                    <input type="hidden" id="happy-intensity" class="rating-value" value="3">
+                    <input type="hidden" id="happy-intensity" name="happy-intensity" class="rating-value" value="0">
                 </div>
                 <img id="yellow-icon" class="icon yellow" src="img/okay.png">
                 <div class="star-rating okay">
@@ -29,7 +30,7 @@
                     <span class="fa fa-square-o" data-rating="3"></span>
                     <span class="fa fa-square-o" data-rating="4"></span>
                     <span class="fa fa-square-o" data-rating="5"></span>
-                    <input type="hidden" id="okay-intensity" class="rating-value" value="3">
+                    <input type="hidden" id="okay-intensity" name="okay-intensity" class="rating-value" value="0">
                 </div>
                 <img id="orange-icon" class="icon orange" src="img/sad.png">
                 <div class="star-rating sad">
@@ -38,7 +39,7 @@
                     <span class="fa fa-square-o" data-rating="3"></span>
                     <span class="fa fa-square-o" data-rating="4"></span>
                     <span class="fa fa-square-o" data-rating="5"></span>
-                    <input type="hidden" id="sad-intensity" class="rating-value" value="3">
+                    <input type="hidden" id="sad-intensity" name="sad-intensity" class="rating-value" value="0">
                 </div>
                 <img id="red-icon" class="icon red" src="img/unhappy.png">
                 <div class="star-rating unhappy">
@@ -47,10 +48,10 @@
                     <span class="fa fa-square-o" data-rating="3"></span>
                     <span class="fa fa-square-o" data-rating="4"></span>
                     <span class="fa fa-square-o" data-rating="5"></span>
-                    <input type="hidden" id="unhappy-intensity" class="rating-value" value="3">
+                    <input type="hidden" id="unhappy-intensity" name="unhappy-intensity" class="rating-value" value="0">
                 </div>
                 <script src="js/smiley.js"></script>
-                <input class="submit" type="submit">
+                <input type="submit">
             </div>
         </form>
     </body>

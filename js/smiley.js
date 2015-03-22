@@ -12,8 +12,17 @@ $( document ).ready(function() {
     };
 
     $star_rating.on('click', function() {
-        $star_rating.siblings('input.rating-value').val($(this).data('rating'));
-        return SetRatingStar();
+        var rating = $(this).data('rating');
+        $(this).parent('div').find('input').val(rating);
+
+        $(this).parent('div').find('span').each(function() {
+            if (parseInt($(this).attr('data-rating')) > parseInt(rating)) {
+                return $(this).removeClass('fa-square').addClass('fa-square-o');
+            } else {
+                return $(this).removeClass('fa-square-o').addClass('fa-square');
+            }
+        });
+
     });
 
     SetRatingStar();
@@ -22,7 +31,10 @@ $("#toggle-feedback").click(function() {
     $( "#toggle" ).toggle( "slide" );
 });
 $( "#feedbackform" ).submit(function(){
-    alert($( "#feedbackform" ).serialize());
+    var d = {};
+    d.intensity = $( "form" ).serialize();
+
+    alert($( "form" ).serialize());
     $.ajax({
         url: "https://api.mongolab.com/api/1/databases/smileydb/collections/feedback?apiKey=7HhN3sa1zLtTRKzYf34cicNQTfGWYEPd",
         type: "POST",
@@ -78,7 +90,7 @@ $( ".icon" ).on( "click", function(e) {
     return false;
 });
 function rebindMouseOut(){
-    $( ".star-rating").hide();
+    $( ".star-rating" ).hide();
     $( ".icon" ).css( "background-color", "" );
     $( ".icon" ).bind( "mouseout", function(){
         $( this ).css( "background-color", "" );
