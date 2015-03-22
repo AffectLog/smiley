@@ -21,11 +21,14 @@ $( document ).ready(function() {
 $("#toggle-feedback").click(function() {
     $( "#toggle" ).toggle( "slide" );
 });
-$("#feedback").submit(function(){
+$( "#feedbackform" ).submit(function(){
+    alert($( "#feedbackform" ).serialize());
     $.ajax({
         url: "https://api.mongolab.com/api/1/databases/smileydb/collections/feedback?apiKey=7HhN3sa1zLtTRKzYf34cicNQTfGWYEPd",
         type: "POST",
+        data: $( "#feedbackform" ).serialize(),
         crossDomain: true,
+        contentType: "application/json",
         success: function(data) {
             console.log(data);
         },
@@ -36,7 +39,6 @@ $("#feedback").submit(function(){
         $( this ).addClass( "done" );
     });
 });
-
 $( ".icon" ).on( "mouseover", function() {
     if ( $( this ).hasClass( "green" ) )
         $( this ).css( "background-color", "lightgreen" );
