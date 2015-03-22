@@ -79,7 +79,7 @@ $( ".icon" ).on( "click", function(e) {
     }
     if ( $( this ).hasClass( "orange" ) ) {
         $(this).css("background-color", "orange");
-        $( "#emotion").val("not okay");
+        $( "#emotion").val("sad");
         $( ".sad").show();
     }
     if ( $( this ).hasClass( "red" ) ) {
@@ -91,6 +91,7 @@ $( ".icon" ).on( "click", function(e) {
 });
 function rebindMouseOut(){
     $( ".star-rating" ).hide();
+    $( ".rating-value").val(0);
     $( ".icon" ).css( "background-color", "" );
     $( ".icon" ).bind( "mouseout", function(){
         $( this ).css( "background-color", "" );
