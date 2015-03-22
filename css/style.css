@@ -11,3 +11,14 @@ img {
     height: 100%;
     background: #fff;
 }
+
+.star-rating {
+    line-height:32px;
+    font-size:1.25em;
+    cursor: pointer;
+    display: none;
+}
+
+.fa {
+    font-size: 12px;
+}
